@@ -1,5 +1,5 @@
 from django.db import models
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 # import random
 
@@ -24,3 +24,17 @@ class Pokemon(models.Model):
 
 	def __str__(self):
 	    return self.name
+
+class UserPokemon(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    pokemon = models.ManyToManyField(Pokemon)
+    # level = models.PositiveIntegerField()
+    # add other fields as needed
+
+def __str__(self):
+		return f"{self.user.username}'s {self.pokemon.name}"
+	
+class BlacklistedToken(models.Model):
+    # Define your fields here
+
+    objects = models.Manager()

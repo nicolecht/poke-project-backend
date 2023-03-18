@@ -2,6 +2,21 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from pokemon.serializers import UserPokemonSerializer
+from pokemon.models import UserPokemon
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.models import User
+
+class UserPokemonView(APIView):
+    def get(self, request, username):
+        # retrieve the user from the request (e.g. using request.user)
+        user = get_object_or_404(User, username=username)
+        user = request.user
+        user_pokemon = UserPokemon.objects.filter(user=user)
+        serializer = UserPokemonSerializer(user_pokemon, many=True)
+        return Response(serializer.data)
 
 def signup(request):
     if request.method == 'POST':
