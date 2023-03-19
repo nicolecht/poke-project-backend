@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 # import random
+import uuid
 
 class UserAccountManager(BaseUserManager):
 	def create_user(self, username, password=None):
