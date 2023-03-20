@@ -1,5 +1,5 @@
 from django.urls import path, include
-from pokemon.views import signup, login_view, home, logout_view, UserPokemonView, AllPokemonAPIView, UnownedPokemonView
+from pokemon.views import signup, login_view, home, logout_view, UserPokemonView, AllPokemonAPIView, UnownedPokemonView, AddPokemonView, ReleasePokemonView
 
 urlpatterns = [
     # path('signup/', signup, name='signup'),
@@ -9,6 +9,8 @@ urlpatterns = [
     path('pokemon/unownedpokemon/', UnownedPokemonView.as_view()),
     path('pokemon/mypokemon/', UserPokemonView.as_view()),
     path('pokemon/allpokemon/', AllPokemonAPIView.as_view(), name='all_pokemon'),
+    path('pokemon/addpokemon/', AddPokemonView.as_view()),
+    path('pokemon/releasepokemon/', ReleasePokemonView.as_view()),
 
     # paths to djoser endpoints
     path('auth/', include('djoser.urls')),

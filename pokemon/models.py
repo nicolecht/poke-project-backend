@@ -32,8 +32,8 @@ class UserPokemon(models.Model):
     # level = models.PositiveIntegerField()
     # add other fields as needed
 
-def __str__(self):
-		return f"{self.user.username}'s {self.pokemon.name}"
+    def __str__(self):
+        return f"{self.user.username} ({self.pokemon.count()} Pokemon)"
 	
 class BlacklistedToken(models.Model):
     # Define your fields here

@@ -29,3 +29,8 @@ class UserPokemonSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserPokemon
         fields = ['id', 'user', 'pokemon']
+
+class AddAndReleasePokemonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pokemon
+        fields = ['name']
