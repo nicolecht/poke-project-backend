@@ -22,4 +22,3 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
-7. Access Django Admin via http://127.0.0.1:8000/admin/
